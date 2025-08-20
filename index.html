@@ -16,13 +16,22 @@
     }
 
     header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* título à esquerda, imagem à direita */
         background-color: #0d0d1a;
         color: #fff;
-        padding: 20px 30px;
+        padding: 15px 30px;
         position: sticky;
         top: 0;
         z-index: 10;
         box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .header-img {
+        height: 50px;  /* ajusta a altura da imagem */
+        width: auto;
+        border-radius: 5px; /* opcional, deixa cantos arredondados */
     }
 
     header h1 {
@@ -130,6 +139,7 @@
 <body>
 <header>
     <h1>SFI5904-1/2 Redes Complexas</h1>
+    <img src="logotipo_ifsc_500x113.jpg" alt="Logo do instituto" class="header-img">
 </header>
 
 <div class="accordion-container">
@@ -214,4 +224,5 @@ accordions.forEach(acc => {
 </script>
 </body>
 </html>
+
 
