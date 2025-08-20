@@ -143,6 +143,43 @@
         border: 1px solid #444;
     }
 
+    /* === ADAPTAÇÃO PARA CELULAR === */
+    @media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .header-img {
+        height: 40px;
+    }
+
+    .accordion {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+
+    .panel {
+        padding: 10px 15px;
+    }
+
+    .panel iframe {
+        height: 60vh;
+    }
+
+    .section-text {
+        padding: 15px 20px;
+    }
+
+    .section-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .accordion-container {
+        padding: 0 10px;
+        margin: 20px auto;
+    }
+}
 </style>
 </head>
 <body>
@@ -233,13 +270,3 @@ accordions.forEach(acc => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
