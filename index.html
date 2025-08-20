@@ -9,18 +9,18 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
 
     body {
-        font-family: 'Roboto Mono', monospace;
-        margin: 0;
-        background-color: #ccc;
-        color: #000;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    background-color: #ccc;  /* fundo cinza */
+    color: #000;             /* texto preto */
     }
 
     header {
         display: flex;
-        align-items: center;
-        justify-content: space-between; /* título à esquerda, imagem à direita */
-        background-color: #fff;
-        color: #000;
+            align-items: center;
+        justify-content: space-between;
+        background-color: #fff;  /* fundo branco do header */
+        color: #000;             /* texto preto */
         padding: 15px 30px;
         position: sticky;
         top: 0;
@@ -29,26 +29,27 @@
     }
 
     .header-img {
-        height: 60px;  /* ajusta a altura da imagem */
+        height: 60px;
         width: auto;
-        border-radius: 5px; /* opcional, deixa cantos arredondados */
+        border-radius: 5px;
     }
-
+    
     header h1 {
         margin: 0;
         font-size: 2em;
         letter-spacing: 1px;
     }
-
+    
     .accordion-container {
         max-width: 900px;
         margin: 30px auto;
         padding: 0 20px;
     }
-
+    
+    /* Accordion (botões das aulas) */
     .accordion {
-        background-color: #fff;
-        color: #000;
+        background-color: #fff;   /* célula branca */
+        color: #000;              /* texto preto */
         cursor: pointer;
         padding: 18px 25px;
         width: 100%;
@@ -61,27 +62,28 @@
         font-size: 1.15em;
         box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
-
+    
     .accordion:hover {
-        background-color: #3a3a5a;
+        background-color: #d0d0ff;  /* leve azul pastel ao passar o mouse */
         transform: translateY(-2px);
     }
-
+    
     .active {
-        background-color: #4a4a78;
+        background-color: #a0c4ff;  /* azul pastel para seção ativa */
     }
-
+    
+    /* Painéis que abrem o iframe */
     .panel {
         overflow: hidden;
         max-height: 0;
         transition: max-height 0.5s ease, padding 0.5s ease;
-        background-color: #fff;
+        background-color: #fff;   /* célula branca */
         border-radius: 0 0 8px 8px;
         padding: 0 25px;
         margin-bottom: 15px;
         box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
-
+    
     .panel iframe {
         width: 100%;
         height: 80vh;
@@ -91,49 +93,51 @@
         opacity: 0;
         transition: transform 0.5s ease, opacity 0.5s ease;
         border-radius: 5px;
-        background-color: #fff;
+        background-color: #fff;   /* célula branca */
     }
-
+    
     .panel.show iframe {
         transform: translateY(0);
         opacity: 1;
     }
-
-    /* Pequena animação de fade para os títulos */
+    
+    /* Seta animada do accordion */
     .accordion::after {
         content: '\25BC';
         float: right;
         transition: transform 0.3s;
     }
-
+    
     .accordion.active::after {
         transform: rotate(180deg);
     }
     
+    /* Seções de texto entre as aulas */
     .section-text {
-        background-color: #fff;
+        background-color: #fff;  /* célula branca */
         padding: 20px 25px;
         border-radius: 8px;
         margin-bottom: 20px;
         box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
-
+    
     .section-text h2 {
-        color: #a0c4ff;
+        color: #264653;  /* azul escuro pastel */
         margin-top: 0;
     }
-
+    
     .section-text p {
         line-height: 1.6;
-        color: #e0e0e0;
-        }
-
+        color: #000;   /* texto preto */
+    }
+    
     .section-img {
         max-width: 100%;
         border-radius: 5px;
         margin-top: 10px;
         border: 1px solid #444;
     }
+
 </style>
 </head>
 <body>
@@ -224,6 +228,7 @@ accordions.forEach(acc => {
 </script>
 </body>
 </html>
+
 
 
 
