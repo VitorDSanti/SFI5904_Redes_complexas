@@ -100,6 +100,31 @@
     .accordion.active::after {
         transform: rotate(180deg);
     }
+    
+    .section-text {
+        background-color: #2a2a3d;
+        padding: 20px 25px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+
+    .section-text h2 {
+        color: #a0c4ff;
+        margin-top: 0;
+    }
+
+    .section-text p {
+        line-height: 1.6;
+        color: #e0e0e0;
+        }
+
+    .section-img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-top: 10px;
+        border: 1px solid #444;
+    }
 </style>
 </head>
 <body>
@@ -108,13 +133,34 @@
 </header>
 
 <div class="accordion-container">
+    <!-- Introdução / Texto antes da Aula 1 -->
+    <section class="section-text">
+        <h2>Introdução à disciplina</h2>
+        <p>Esta disciplina aborda conceitos fundamentais de Redes Complexas, incluindo análise de grafos, métricas de centralidade e aplicações em sistemas reais.</p>
+        <img src="imagem_introducao.png" alt="Redes Complexas" class="section-img">
+    </section>
+
     <!-- Aula 1 -->
     <button class="accordion" data-link="Redes_Complexas_T1.html">Aula 1</button>
     <div class="panel"></div>
 
+    <!-- Texto / imagem entre Aula 1 e Aula 2 -->
+    <section class="section-text">
+        <h2>Resumo do conteúdo da Aula 1</h2>
+        <p>Na primeira aula, exploramos os conceitos de nós, arestas e representações gráficas de redes complexas.</p>
+        <img src="imagem_aula1.png" alt="Exemplo de rede" class="section-img">
+    </section>
+
     <!-- Aula 2 -->
     <button class="accordion" data-link="Aula2.html">Aula 2</button>
     <div class="panel"></div>
+
+    <!-- Texto / imagem entre Aula 2 e Aula 3 -->
+    <section class="section-text">
+        <h2>Resumo do conteúdo da Aula 2</h2>
+        <p>Focamos em métricas de centralidade e detecção de comunidades dentro das redes.</p>
+        <img src="imagem_aula2.png" alt="Comunidades" class="section-img">
+    </section>
 
     <!-- Aula 3 -->
     <button class="accordion" data-link="Aula3.html">Aula 3</button>
@@ -168,3 +214,4 @@ accordions.forEach(acc => {
 </script>
 </body>
 </html>
+
