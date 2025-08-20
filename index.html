@@ -53,8 +53,8 @@
     
     /* Accordion (botões das aulas) */
     .accordion {
-        background-color: #fff;   /* célula branca */
-        color: #000;              /* texto preto */
+        background-color: #2d5870;   /* célula */
+        color: #fff;              /* texto preto */
         cursor: pointer;
         padding: 18px 25px;
         width: 100%;
@@ -69,12 +69,12 @@
     }
     
     .accordion:hover {
-        background-color: #d0d0ff;  /* leve azul pastel ao passar o mouse */
+        background-color: #264653;  /* azul escuro ao passar o mouse */
         transform: translateY(-2px);
     }
     
     .active {
-        background-color: #a0c4ff;  /* azul pastel para seção ativa */
+        background-color: #264653;  /* azul escuro para seção ativa */
     }
     
     /* Painéis que abrem o iframe */
@@ -82,7 +82,7 @@
         overflow: hidden;
         max-height: 0;
         transition: max-height 0.5s ease, padding 0.5s ease;
-        background-color: #2d5870;   /* célula */
+        background-color: #2d5870;   /* célula azul escuro */
         border-radius: 0 0 8px 8px;
         padding: 0 25px;
         margin-bottom: 15px;
@@ -270,5 +270,6 @@ accordions.forEach(acc => {
 </script>
 </body>
 </html>
+
 
 
