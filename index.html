@@ -9,10 +9,15 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
 
     body {
-    font-family: 'Roboto Mono', monospace;
-    margin: 0;
-    background-color: #ccc;  /* fundo cinza */
-    color: #000;             /* texto preto */
+        font-family: 'Roboto Mono', monospace;
+        margin: 0;
+        background-color: #ccc;  /* cor de fallback */
+        background-image: url('Plano_de_fundo.jpg'); /* caminho da sua imagem */
+        background-size: cover;    /* cobre toda a tela */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed; /* imagem fixa ao rolar a página */
+        color: #000;
     }
 
     header {
@@ -228,6 +233,7 @@ accordions.forEach(acc => {
 </script>
 </body>
 </html>
+
 
 
 
