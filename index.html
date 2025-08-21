@@ -29,7 +29,7 @@ body::before {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255,255,255,0.5);
     z-index: -1;
 }
 
@@ -47,7 +47,7 @@ header {
     padding: 15px 30px;
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: 30;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     border-bottom: 2px solid #2d5870;
     transition: background-color 0.3s;
@@ -66,6 +66,21 @@ header h1 {
     border-radius: 5px;
 }
 
+/* ===== Botão hamburger (mobile) ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #2d5870;
+    transition: all 0.3s;
+}
+
 /* ===== Sidebar ===== */
 .sidebar {
     position: fixed;
@@ -77,8 +92,13 @@ header h1 {
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.2);
     border-radius: 0 8px 8px 0;
-    z-index: 10;
+    z-index: 20;
     overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.hidden {
+    transform: translateX(-240px);
 }
 
 .sidebar h3 {
@@ -144,15 +164,15 @@ header h1 {
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
 
-.accordion.active::after {
-    transform: rotate(180deg);
-}
-
 /* Setinha do accordion */
 .accordion::after {
     content: '\25BC';
     float: right;
     transition: transform 0.3s;
+}
+
+.accordion.active::after {
+    transform: rotate(180deg);
 }
 
 /* ===== Painéis ===== */
@@ -212,7 +232,7 @@ header h1 {
     color: #000;
 }
 
-/* Espaço extra apenas antes da primeira seção (Introdução) */
+/* Espaço extra antes da primeira seção (Introdução) */
 .section-text:first-of-type {
     margin-bottom: 30px;
 }
@@ -230,21 +250,28 @@ header h1 {
     border: 1px solid #444;
 }
 
-/* ===== Rodapé ===== */
-footer {
+/* ===== Botão voltar ao topo ===== */
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
     background-color: #2d5870;
     color: #fff;
-    text-align: center;
-    padding: 15px 20px;
-    position: relative; /* use fixed para sempre visível */
-    font-family: 'Montserrat', sans-serif;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
-    margin-top: 30px;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 22px;
+    z-index: 50;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-footer p {
-    margin: 0;
-    font-size: 0.9em;
+#topBtn:hover {
+    background-color: #1f3f50;
+    transform: translateY(-2px);
 }
 
 /* ===== Responsividade ===== */
@@ -254,30 +281,22 @@ footer p {
     }
 
     .sidebar {
-        position: relative;
-        top: 0;
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 0;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 200px;
+        height: calc(100% - 60px);
+        transform: translateX(-240px);
+        transition: transform 0.3s ease;
+        z-index: 25;
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .hamburger {
         display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-    }
-
-    .sidebar h3 {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 5px;
-        padding: 10px 0;
-    }
-
-    .sidebar a {
-        margin: 5px;
-        padding: 10px 15px;
-        text-align: center;
-        flex: 1 1 auto;
     }
 }
 
@@ -311,11 +330,6 @@ footer p {
         max-width: 100%;
         height: auto;
     }
-
-    .accordion-container {
-        padding: 0 10px;
-        margin: 20px auto;
-    }
 }
 
 </style>
@@ -325,6 +339,11 @@ footer p {
 <header>
     <h1>SFI5904 - Redes Complexas</h1>
     <img src="logotipo_ifsc_500x113.jpg" alt="Logo do instituto" class="header-img">
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </header>
 
 <!-- Sidebar -->
@@ -464,6 +483,9 @@ footer p {
     <p>SFI5904 - Redes Complexas | IFSC - Instituto de Física de São Carlos &copy; 2025</p>
 </footer>
 
+<!-- Botão voltar ao topo -->
+<button id="topBtn" title="Voltar ao topo">&#8679;</button>
+
 <script>
 // Accordion
 const accordions = document.querySelectorAll(".accordion");
@@ -544,9 +566,21 @@ window.addEventListener("scroll", () => {
             link.classList.add("active-link");
         }
     });
+
+    // Scroll suave para botão voltar ao topo
+    document.getElementById("topBtn").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Hamburger menu
+    const hamburger = document.getElementById("hamburger");
+    const sidebar = document.getElementById("sidebar");
+    hamburger.addEventListener("click", () => {
+        sidebar.classList.toggle("show");
 });
     
 </script>
 
 </body>
 </html>
+
