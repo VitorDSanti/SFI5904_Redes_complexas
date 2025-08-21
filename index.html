@@ -4,147 +4,159 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SFI5904-1/2 Redes Complexas</title>
+
+<!-- Fontes -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
 <style>
-    /* Fonte e cores */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap');
+/* ===== Geral ===== */
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    background-color: #ccc;
+    /* Gradiente sobre a imagem */
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+        url('Plano_de_fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000;
+}
 
-    body {
-        font-family: 'Roboto Mono', monospace;
-        margin: 0;
-        background-color: #ccc;  /* cor de fallback */
-        background-image: url('Plano_de_fundo.jpg'); /* caminho da sua imagem */
-        background-size: cover;    /* cobre toda a tela */
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed; /* imagem fixa ao rolar a página */
-        color: #000;
-    }
+/* ===== Header ===== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    color: #2d5870;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border-bottom: 2px solid #2d5870;
+}
 
-    header {
-        display: flex;
-            align-items: center;
-        justify-content: space-between;
-        background-color: #fff;  /* fundo branco do header */
-        color: #2d5870;             /* texto */
-        padding: 15px 30px;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
 
-    .header-img {
-        height: 60px;
-        width: auto;
-        border-radius: 5px;
-    }
-    
-    header h1 {
-        margin: 0;
-        font-size: 2em;
-        letter-spacing: 1px;
-    }
-    
-    .accordion-container {
-        max-width: 900px;
-        margin: 30px auto;
-        padding: 0 20px;
-    }
-    
-    /* Accordion (botões das aulas) */
-    .accordion {
-        background-color: #2d5870;   /* célula */
-        color: #fff;              /* texto preto */
-        cursor: pointer;
-        padding: 18px 25px;
-        width: 100%;
-        border: none;
-        border-radius: 8px;
-        text-align: left;
-        outline: none;
-        transition: background-color 0.3s, transform 0.2s;
-        margin-bottom: 10px;
-        font-size: 1.15em;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    }
-    
-    .accordion:hover {
-        background-color: #264653;  /* azul escuro ao passar o mouse */
-        transform: translateY(-2px);
-    }
-    
-    .active {
-        background-color: #264653;  /* azul escuro para seção ativa */
-    }
-    
-    /* Painéis que abrem o iframe */
-    .panel {
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.5s ease, padding 0.5s ease;
-        background-color: #2d5870;   /* célula azul escuro */
-        border-radius: 0 0 8px 8px;
-        padding: 0 25px;
-        margin-bottom: 15px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    }
-    
-    .panel iframe {
-        width: 100%;
-        height: 80vh;
-        border: none;
-        display: block;
-        transform: translateY(-20px);
-        opacity: 0;
-        transition: transform 0.5s ease, opacity 0.5s ease;
-        border-radius: 5px;
-        background-color: #fff;   /* célula branca */
-    }
-    
-    .panel.show iframe {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    
-    /* Seta animada do accordion */
-    .accordion::after {
-        content: '\25BC';
-        float: right;
-        transition: transform 0.3s;
-    }
-    
-    .accordion.active::after {
-        transform: rotate(180deg);
-    }
-    
-    /* Seções de texto entre as aulas */
-    .section-text {
-        background-color: #fff;  /* célula branca */
-        padding: 20px 25px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    }
-    
-    .section-text h2 {
-        color: #2d5870;  /* azul escuro pastel */
-        margin-top: 0;
-    }
-    
-    .section-text p {
-        line-height: 1.6;
-        color: #000;   /* texto preto */
-    }
-    
-    .section-img {
-        max-width: 100%;
-        border-radius: 5px;
-        margin-top: 10px;
-        border: 1px solid #444;
-    }
+.header-img {
+    height: 60px;
+    width: auto;
+    border-radius: 5px;
+}
 
-    /* === ADAPTAÇÃO PARA CELULAR === */
-    @media (max-width: 600px) {
+/* ===== Container ===== */
+.accordion-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ===== Accordion (botões das aulas) ===== */
+.accordion {
+    background-color: #2d5870;
+    color: #fff;
+    cursor: pointer;
+    padding: 18px 25px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    text-align: left;
+    outline: none;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-bottom: 10px;
+    font-size: 1.15em;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.accordion:hover {
+    background-color: #264653;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.active {
+    background-color: #264653;
+}
+
+/* ===== Painéis ===== */
+.panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+    background-color: #2d5870;
+    border-radius: 0 0 8px 8px;
+    padding: 0 25px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.panel iframe {
+    width: 100%;
+    height: 80vh;
+    border: none;
+    display: block;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.panel.show iframe {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ===== Seta animada ===== */
+.accordion::after {
+    content: '\25BC';
+    float: right;
+    transition: transform 0.3s;
+}
+
+.accordion.active::after {
+    transform: rotate(180deg);
+}
+
+/* ===== Seções de texto ===== */
+.section-text {
+    background-color: #fff;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.section-text h2 {
+    color: #2d5870;
+    margin-top: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-text p {
+    line-height: 1.6;
+    color: #000;
+}
+
+.section-img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #444;
+}
+
+/* ===== Responsividade para celular ===== */
+@media (max-width: 600px) {
     header h1 {
         font-size: 1.5em;
     }
@@ -183,13 +195,15 @@
 </style>
 </head>
 <body>
+
 <header>
     <h1>SFI5904-1/2 Redes Complexas</h1>
     <img src="logotipo_ifsc_500x113.jpg" alt="Logo do instituto" class="header-img">
 </header>
 
 <div class="accordion-container">
-    <!-- Introdução / Texto antes da Aula 1 -->
+
+    <!-- Introdução -->
     <section class="section-text">
         <h2>Introdução à disciplina</h2>
         <p>Esta disciplina aborda conceitos fundamentais de Redes Complexas, incluindo análise de grafos, métricas de centralidade e aplicações em sistemas reais.</p>
@@ -200,7 +214,7 @@
     <button class="accordion" data-link="Redes_Complexas_T1.html">Aula 1</button>
     <div class="panel"></div>
 
-    <!-- Texto / imagem entre Aula 1 e Aula 2 -->
+    <!-- Texto após Aula 1 -->
     <section class="section-text">
         <h2>Resumo do conteúdo da Aula 1</h2>
         <p>Na primeira aula, exploramos os conceitos de nós, arestas e representações gráficas de redes complexas.</p>
@@ -211,7 +225,7 @@
     <button class="accordion" data-link="Aula2.html">Aula 2</button>
     <div class="panel"></div>
 
-    <!-- Texto / imagem entre Aula 2 e Aula 3 -->
+    <!-- Texto após Aula 2 -->
     <section class="section-text">
         <h2>Resumo do conteúdo da Aula 2</h2>
         <p>Focamos em métricas de centralidade e detecção de comunidades dentro das redes.</p>
@@ -221,6 +235,7 @@
     <!-- Aula 3 -->
     <button class="accordion" data-link="Aula3.html">Aula 3</button>
     <div class="panel"></div>
+
 </div>
 
 <script>
@@ -268,8 +283,6 @@ accordions.forEach(acc => {
     });
 });
 </script>
+
 </body>
 </html>
-
-
-
