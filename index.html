@@ -230,6 +230,23 @@ header h1 {
     border: 1px solid #444;
 }
 
+/* ===== Rodapé ===== */
+footer {
+    background-color: #2d5870;
+    color: #fff;
+    text-align: center;
+    padding: 15px 20px;
+    position: relative; /* use fixed para sempre visível */
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
 /* ===== Responsividade ===== */
 @media (max-width: 900px) {
     .main-content {
@@ -336,12 +353,12 @@ header h1 {
         <p>A área de Redes Complexas, também denominada Ciência de Redes, tem se destacado pelo seu amplo potencial para representação e modelagem dos mais variados sistemas complexos, que se estendem desde redes biológicas até sistemas de transporte. Derivando parcialmente de Teoria dos Grafos, esta área tem sido enriquecida com a incorporação de conceitos e métodos de reconhecimento de padrões, estatística multivariada, inteligência artificial e visualização científica, dentre outras disciplinas.</p>
     </section>
 
+    <!-- Aulas -->
     <!-- Aula 1 -->
     <section class="section-text" id="aula1">
         <h2>Aula 1: Introdução a Grafos e Redes Complexas</h2>
         <p>Na primeira aula, exploramos os conceitos de nós, arestas e representações gráficas de redes complexas.</p>
     </section>
-
     <button class="accordion" data-link="Redes_Complexas_T1.html">Aula 1</button>
     <div class="panel"></div>
 
@@ -350,7 +367,6 @@ header h1 {
         <h2>Aula 2: Representação e Visualização de Grafos – Aspectos Matemáticos e Computacionais</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula2.html">Aula 2</button>
     <div class="panel"></div>
 
@@ -359,7 +375,6 @@ header h1 {
         <h2>Aula 3: Redes Aleatórias - Modelo de Erdős–Rényi</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula3.html">Aula 3</button>
     <div class="panel"></div>
 
@@ -368,7 +383,6 @@ header h1 {
         <h2>Aula 4: Small-World – Teorias de Milgram e Watts–Strogatz</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula4.html">Aula 4</button>
     <div class="panel"></div>
 
@@ -377,7 +391,6 @@ header h1 {
         <h2>Aula 5: Redes Livre de Escala – Modelo Barabási–Albert</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula5.html">Aula 5</button>
     <div class="panel"></div>
 
@@ -386,7 +399,6 @@ header h1 {
         <h2>Aula 6: Medidas e Detecção de Comunidades – Survey</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula6.html">Aula 6</button>
     <div class="panel"></div>
 
@@ -395,7 +407,6 @@ header h1 {
         <h2>Aula 7: Resumo da Aula 7</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula7.html">Aula 7</button>
     <div class="panel"></div>
 
@@ -404,7 +415,6 @@ header h1 {
         <h2>Aula 8: Resumo da Aula 8</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula8.html">Aula 8</button>
     <div class="panel"></div>
 
@@ -413,7 +423,6 @@ header h1 {
         <h2>Aula 9: Resumo da Aula 9</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula9.html">Aula 9</button>
     <div class="panel"></div>
 
@@ -422,7 +431,6 @@ header h1 {
         <h2>Aula 10: Resumo da Aula 10</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula10.html">Aula 10</button>
     <div class="panel"></div>
 
@@ -431,7 +439,6 @@ header h1 {
         <h2>Aula 11: Resumo da Aula 11</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula11.html">Aula 11</button>
     <div class="panel"></div>
 
@@ -440,7 +447,6 @@ header h1 {
         <h2>Aula 12: Resumo da Aula 12</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula12.html">Aula 12</button>
     <div class="panel"></div>
 
@@ -449,10 +455,14 @@ header h1 {
         <h2>Aula 13: Resumo da Aula 13</h2>
         <p>Texto em produção.</p>
     </section>
-
     <button class="accordion" data-link="Aula13.html">Aula 13</button>
     <div class="panel"></div>
 </div>
+
+<!-- Rodapé -->
+<footer>
+    <p>SFI5904 - Redes Complexas | IFSC - Instituto de Física de São Carlos &copy; 2025</p>
+</footer>
 
 <script>
 // Accordion
@@ -540,5 +550,3 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
-
-
