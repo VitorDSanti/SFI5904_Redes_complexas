@@ -33,6 +33,10 @@ body::before {
     z-index: -1;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* ===== Header ===== */
 header {
     display: flex;
@@ -496,14 +500,29 @@ accordions.forEach(acc => {
     });
 });
 
-// Destacar link ativo na sidebar
-const sections = document.querySelectorAll(".accordion");
+// Scroll suave e destacar link ativo na sidebar
 const sidebarLinks = document.querySelectorAll(".sidebar a");
 
+sidebarLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault(); // previne jump instantâneo
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        // scroll suave até a seção
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // destaca o link clicado
+        sidebarLinks.forEach(l => l.classList.remove("active-link"));
+        this.classList.add("active-link");
+    });
+});
+
+// Mantém o destaque do link ativo ao rolar a página manualmente
 window.addEventListener("scroll", () => {
     let current = "";
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+    document.querySelectorAll(".section-text").forEach(section => {
+        const sectionTop = section.offsetTop - 120; // considera header
         if (scrollY >= sectionTop) {
             current = section.getAttribute("id");
         }
@@ -516,8 +535,10 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+    
 </script>
 
 </body>
 </html>
+
 
