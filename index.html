@@ -50,15 +50,6 @@ header h1 {
     border-radius: 5px;
 }
 
-.section-text {
-    background-color: #fff;
-    padding: 20px 25px;
-    border-radius: 8px;
-    margin-bottom: 0; /* mantém seções coladas */
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-    scroll-margin-top: 100px; /* ajusta para altura do header */
-}
-
 /* ===== Sidebar ===== */
 .sidebar {
     position: fixed;
@@ -120,7 +111,7 @@ header h1 {
     text-align: left;
     outline: none;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-    margin-bottom: 0px;
+    margin-bottom: 0; /* colado com a seção anterior */
     font-size: 1.15em;
     font-family: 'Montserrat', sans-serif;
     box-shadow: 0 3px 6px rgba(0,0,0,0.2);
@@ -144,7 +135,7 @@ header h1 {
     background-color: #2d5870;
     border-radius: 0 0 8px 8px;
     padding: 0 25px;
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* mantém espaçamento natural */
     box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 
@@ -181,8 +172,9 @@ header h1 {
     background-color: #fff;
     padding: 20px 25px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 0; /* colado com o botão */
     box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    scroll-margin-top: 100px; /* ajuste para o header */
 }
 
 .section-text h2 {
@@ -201,6 +193,11 @@ header h1 {
     border-radius: 5px;
     margin-top: 10px;
     border: 1px solid #444;
+}
+
+/* ===== Espaçamento entre blocos de aulas ===== */
+.accordion + .panel + .section-text {
+    margin-top: 30px; /* espaço entre Aula 1 e Aula 2 */
 }
 
 /* ===== Responsividade ===== */
@@ -495,6 +492,7 @@ window.addEventListener("scroll", () => {
 </script>
 </body>
 </html>
+
 
 
 
