@@ -51,7 +51,12 @@ header h1 {
 }
 
 .section-text {
-    scroll-margin-top: 100px;
+    background-color: #fff;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 0; /* mantém seções coladas */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    scroll-margin-top: 100px; /* ajusta para altura do header */
 }
 
 /* ===== Sidebar ===== */
@@ -129,10 +134,6 @@ header h1 {
 
 .active {
     background-color: #264653;
-}
-
-.aula-container {
-    margin-bottom: 30px; /* espaço entre aulas */
 }
 
 /* ===== Painéis ===== */
@@ -308,18 +309,14 @@ header h1 {
         <p>A área de Redes Complexas, também denominada Ciência de Redes, tem se destacado pelo seu amplo potencial para representação e modelagem dos mais variados sistemas complexos, que se estendem desde redes biológicas até sistemas de transporte. Derivando parcialmente de Teoria dos Grafos, esta área tem sido enriquecida com a incorporação de conceitos e métodos de reconhecimento de padrões, estatística multivariada, inteligência artificial e visualização científica, dentre outras disciplinas.</p>
     </section>
 
-
-    <section class="aula-container" id="aula1">
-        <!-- Resumo / texto -->
-        <div class="section-text">
-            <h2>Aula 1: Introdução a Grafos e Redes Complexas</h2>
-            <p>Na primeira aula, exploramos os conceitos de nós, arestas e representações gráficas de redes complexas.</p>
-        </div>
-    
-        <!-- Accordion -->
-        <button class="accordion" data-link="Redes_Complexas_T1.html">Aula 1</button>
-        <div class="panel"></div>
+    <!-- Aula 1 -->
+    <section class="section-text" id="aula1">
+        <h2>Aula 1: Introdução a Grafos e Redes Complexas</h2>
+        <p>Na primeira aula, exploramos os conceitos de nós, arestas e representações gráficas de redes complexas.</p>
     </section>
+
+    <button class="accordion" data-link="Redes_Complexas_T1.html">Aula 1</button>
+    <div class="panel"></div>
 
     <!-- Aula 2 -->
     <section class="section-text" id="aula2">
@@ -498,6 +495,7 @@ window.addEventListener("scroll", () => {
 </script>
 </body>
 </html>
+
 
 
 
