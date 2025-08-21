@@ -202,18 +202,29 @@ header h1 {
 
     .sidebar {
         position: relative;
+        top: 0;
         width: 100%;
         height: auto;
         border-radius: 0;
         box-shadow: none;
-        padding: 10px 0;
+        padding: 0;
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .sidebar h3 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+        padding: 10px 0;
     }
 
     .sidebar a {
-        margin: 0;
-        padding: 10px;
+        margin: 5px;
+        padding: 10px 15px;
+        text-align: center;
+        flex: 1 1 auto;
     }
 }
 
@@ -253,6 +264,7 @@ header h1 {
         margin: 20px auto;
     }
 }
+
 </style>
 </head>
 <body>
@@ -372,3 +384,4 @@ window.addEventListener("scroll", () => {
 </script>
 </body>
 </html>
+
